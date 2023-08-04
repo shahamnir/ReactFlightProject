@@ -6,7 +6,7 @@ import Country from "./Country";
 const Countries = (props) => {
     const[countries,setCountries] = useState([]);
 
-
+    // Function to fetch all countries from the server
     async function getCountries(){
         try {
             const response = await axios.get('http://127.0.0.1:8000/anonymous/countries/')
@@ -17,6 +17,7 @@ const Countries = (props) => {
         };
     };
 
+    // useEffect hook to fetch countries data when the component mounts
     useEffect(() => {
         getCountries();
     },[]);
@@ -25,7 +26,7 @@ const Countries = (props) => {
 
     return (
         <>
-        
+        {/* Display the list of countries */}
         {countries.map(country => <Country id={country.id}/>)}
         </>
         

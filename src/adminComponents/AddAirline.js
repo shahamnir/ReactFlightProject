@@ -12,6 +12,7 @@ const AddAirline = () => {
     const[countries,setCountries] = useState([]);
 
 
+    // Function to get countries data from the server
     async function getCountries(){
         try {
             const response = await axios.get('http://127.0.0.1:8000/anonymous/countries/')
@@ -29,37 +30,33 @@ const AddAirline = () => {
     const navigate = useNavigate();
 
 
+    // Function to handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
     
         try {
-          axios({
-            method:'post',
-            url:'http://127.0.0.1:8000/admin/add_airline/',
-            data: {
-            username:username,
-            password:password,
-            email:email,
-            name:name,
-            country:country,
-            },
-            headers:{
-            xsrfCookieName: "csrftoken",
-            xsrfHeaderName: "X-CSRFToken",
-            }
-          })
-          navigate("/admin");
-        }
+          // Make a POST request to add an airline
+          await axios.post("http://127.0.0.1:8000/admin/add_airline/", {
+            username: username,
+            password: password,
+            email: email,
+            name: name,
+            country: country,
+          }
+
+          )
+          navigate("/admin");// Redirect to the admin page after successful addition
+          }
            
         catch (error) {
-        console.error(error); // Handle registration error
+        console.error(error); 
         }
       };
 
 
 
 
-
+      // Functions to handle input changes and update state
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
       };

@@ -42,6 +42,7 @@ const Flights = (props) => {
         getCountries();
     },[]);
 
+    // Function to handle form submission and fetch flights based on form inputs
     async function handleSubmit(event){
         event.preventDefault()
 
@@ -69,8 +70,7 @@ const Flights = (props) => {
     return (
         <>
         <form onSubmit={handleSubmit}>
-
-            {/* <label>Origin Country :</label> */}
+            {/* Origin Country Dropdown */}
             <select
             id="o-country" name="origin_country" 
             value={originCountry} onChange={(e)=> setOriginCountry(e.target.value)}
@@ -83,8 +83,7 @@ const Flights = (props) => {
         
             </select>
 
-            {/* <label>Destination Country :</label> */}
-
+            {/* Destination Country Dropdown */}        
             <select 
             id="d-country" name="destination_country"
             value={destinationCountry} onChange={(e)=> setDestinationCountry(e.target.value)}
@@ -96,8 +95,8 @@ const Flights = (props) => {
                 <option value={country.name}> {country.name}</option>
                 )}
             </select>
-
-            {/* <label>Date :</label> */}
+            
+            {/* Departure Date Input */}
             <input 
             className="country-select"
             type="date" name="date"
@@ -114,7 +113,10 @@ const Flights = (props) => {
             />
         </form>
         
+        {/* Display Flights */}
         {flights.map(flight => <Flight id={flight.id}/>)}
+
+        {/* Display Error Message */}
         {errMsg &&<div className="instance-card">
             <div className="instance-err-msg">{errMsg}</div>
         </div>}

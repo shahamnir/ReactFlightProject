@@ -12,10 +12,11 @@ const AddAdmin = () => {
 
     const navigate = useNavigate();
 
-
+    // Function to handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
-    
+
+        // Make a POST request to add an administrator
         try {
           const response = await axios.post('http://127.0.0.1:8000/admin/add_administrator/', {
             username:username,
@@ -25,7 +26,7 @@ const AddAdmin = () => {
             last_name:lastName,
         })
         console.log(response);
-        navigate("/login");
+        navigate("/login");// Redirect to login page after successful addition
 
         }
         
@@ -37,7 +38,7 @@ const AddAdmin = () => {
 
 
 
-
+    // Functions to handle input changes and update state  
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
       };

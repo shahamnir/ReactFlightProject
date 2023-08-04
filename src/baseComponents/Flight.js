@@ -8,7 +8,7 @@ const Flight = (props) => {
     const [flight, setFlight] = useState([]);
     const { id } = props;
 
-
+  // Function to fetch flight data using the provided id
     async function getFlight() {
         try {
             const response = await axios.get(`http://127.0.0.1:8000/anonymous/flights/${id}/`);
@@ -19,9 +19,8 @@ const Flight = (props) => {
         }
     }
 
-
+    // useEffect getFlight function, when the component mounts
     useEffect(() => {
-        console.log("useEffect get flight triggered");
         getFlight();
     }, []);
 

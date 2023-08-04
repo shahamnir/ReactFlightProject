@@ -9,6 +9,7 @@ const LoginForm = () => {
 
   const navigate = useNavigate(); 
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -54,7 +55,10 @@ const LoginForm = () => {
       <button type="submit">Login</button>
     </form>
     
+    {/* Link to the registration page */}
     <a href="/sign-up">Don't have an acount? Register here</a>
+
+    {/* Display error message */}
     {error &&<div>
             <div>{error}</div>
         </div>}

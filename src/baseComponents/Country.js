@@ -27,6 +27,7 @@ const Country = (props) => {
   return (
     <div className="instance-card">
       <div className="left-info">
+          {/* Display the country name */}
           <div className="airline-name">{country.name}</div>
 
       </div>

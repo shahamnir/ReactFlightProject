@@ -7,7 +7,10 @@ const AdminPage = () => {
 
     return(
         <>
+        {/* Render the Admin Navigation */}
         <AdminNav />
+
+        {/* Render the child routes within the Outlet */}
         <Outlet />
 
         </>
@@ -20,11 +23,14 @@ const AdminNav = () => {
         <>
         <div className="admin-nav-card">
             <div className="admin-nav">
+
+        {/* Links to different admin pages */}        
         <ul>
-            <button><li><Link to='/admin/add_admin'> Add Admin</Link></li></button>
-            <button><li><Link to="/admin/customers"> Customers</Link></li> </button>
-            <button><li><Link to="/admin/add_airline"> Add Airline</Link></li>  </button>
-            <button><li><Link to="/admin/remove_airline"> Remove Airline </Link></li></button>   
+            <li><Link to='/admin/add_admin'> Add Admin</Link></li>
+            <li><Link to="/admin/customers"> Customers</Link></li>
+            <li><Link to="/admin/add_airline"> Add Airline</Link></li>
+            <li><Link to="/admin/remove_airline"> Remove Airline </Link></li>
+            <li><Link to="/admin/add_country"> Add Country </Link></li>
         </ul>
             </div>
         </div>

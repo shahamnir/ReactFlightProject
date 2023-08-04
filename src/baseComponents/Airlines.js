@@ -40,6 +40,7 @@ const Airlines = (props) => {
         getCountries();
     },[]);
 
+    // Function to handle the form submission and search for airlines by country
     async function handleSubmit(event){
         event.preventDefault()
 
@@ -66,7 +67,8 @@ const Airlines = (props) => {
         <>
         <form onSubmit={handleSubmit}>
 
-            {/* <label>Airline Country :</label> */}
+            
+            {/* Dropdown menu to select airline country */}
             <select
             id="airline-country" name="airline_country" 
             value={airlineCountry} onChange={(e)=> setAirlineCountry(e.target.value)}
@@ -81,8 +83,11 @@ const Airlines = (props) => {
                 <input type="submit" value="Search Airline" className="search-button"/>
 
             </form>
-        
+
+        {/* Display the list of airlines */}
         {airlines.map(airline => <Airline id={airline.id}/>)}
+
+        {/* Display an error message if no matching airlines found */}
         {errMsg &&<div className="instance-card">
             <div className="isntance-err-msg">{errMsg}</div>
         </div>}

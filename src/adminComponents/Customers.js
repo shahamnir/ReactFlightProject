@@ -5,7 +5,7 @@ import axios from 'axios';
 const Customers = (props) => {
     const[customers,setCustomers] = useState([]);
 
-
+    // Function to fetch customers data from the server
     async function getCustomers(){
         try {
             const response = await axios.get('http://127.0.0.1:8000/administrator/all_customers/')
@@ -16,6 +16,7 @@ const Customers = (props) => {
         };
     };
 
+    // Call the getCustomers function once, when the component mounts
     useEffect(() => {
         getCustomers();
     },[]);
